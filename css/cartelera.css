@@ -26,7 +26,18 @@ hr
     justify-content: center;
     width: 80vw;
 }
-
+.rojo {
+    background-color: rgb(255, 17, 17);
+}
+.naranja {
+    background-color: rgb(233, 124, 51);
+}
+.amarillo {
+    background-color: rgb(224, 183, 0);
+}
+.verde {
+    background-color: var(--detalles);
+}
 #navbarTogglerDemo02 ul
 {
     margin-left: 13rem;
