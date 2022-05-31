@@ -1,3 +1,8 @@
+:root {
+    --detalles: #1ac369;
+    --detallesClaro: #5acf91;
+    --fondoWeb: #252525;
+}
 header {
     display: flex;
     flex-direction: row;
