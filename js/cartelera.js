@@ -35,7 +35,7 @@ document.querySelector(".more").addEventListener("click", function () {
     getCartelera(page);
 })
 
-window.onscroll = function () { scrollFunction() };
+window.onscroll = function () { scrollFunction();GoTop(); };
 
 function scrollFunction() {
     if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
@@ -44,3 +44,16 @@ function scrollFunction() {
         document.querySelector("nav").className = "navbar navbar-expand-lg navbar-light bg-light";
     }
 }
+
+function GoTop()
+{
+    let top = document.getElementById("ir-arriba");
+    if(window.scrollY==0) top.style.visibility="hidden";
+    else top.style.visibility="visible";
+}
+
+document.querySelector("#ir-arriba").addEventListener('click',function () {
+    if(window.scrollY!=0)
+    { window.scrollTo(50,0);
+    console.log("ea")}
+});
