@@ -1,3 +1,8 @@
+:root {
+    --detalles: #1ac369;
+    --detallesClaro: #36df85;
+    --fondoWeb: #252525;
+}
 
 body {
     display: flex;
@@ -9,62 +14,95 @@ body {
 body::-webkit-scrollbar {
     display: none;
 }
+main {
+    min-height: 100vh;
+}
+
 
 .contenido{
-    margin-top: 2rem;
     display:flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    width: 80vw;
+    width: 77.1vw;
+    transition: none;
 }
 
-#navbarTogglerDemo02 ul
-{
-    margin-left: 13rem;
-}
 .pelicula{
     width: 11.9vw;
     height: 17.8vw;
-    border: var(--detalles) solid 2px ;
-    
     margin: 2rem;
-    margin-bottom: 6rem;
-    margin-top: 0px !important;
-    transition: all ease-in-out 0.3s;
-}
-
-.pelicula:hover{
-    position: relative;
-    width: 12.4vw;
-    height: 18.2vw;
-    box-shadow: 0px 10px 10px -6px var(--detalles);
+    margin-bottom: 7.4rem;
+    margin-top: 1.4rem;
 }
 
 .titulo {
     text-align: center;
     margin-top: 1rem;
     font-weight: bolder;
-    overflow: hidden;
-    height: 3rem;
-}
-main
-{
-    display: flex;
-    flex-direction: column;
-}
-main img{
-    width: 100%;
-    height: 100%;
 }
 
-main span{
-    position: static;
+.contenido img{
+    z-index: 50;
+    border-radius: 0.5em;
+    transition: all ease-in-out 0.3s;
+    width: 100%;
+    height: 100%;
+    border: var(--detalles) solid 2px ;
+}
+.contenido img:hover{
+    box-shadow: 0px 10px 10px -6px var(--detalles);
+    transform: scale(1.1);
+}
+
+.contenido img:hover + span{
+    font-size: 2rem;
+}
+
+.pelicula span{
+    position: relative;
+    z-index: 99;
     margin-left: -1vw;
-    background-color: var(--detallesClaro);
     padding: 10px;
     border-radius: 100%;
-    border: 2px white solid;
+    border: 2px var(--detallesClaro) solid;
+    color: white;
+    font-weight: bolder;
+    transition: all ease-in-out 0.3s;
+}
+
+.rojo {
+    background-color: rgb(255, 17, 17);
+}
+.naranja {
+    background-color: rgb(233, 124, 51);
+}
+.amarillo {
+    background-color: rgb(224, 183, 0);
+}
+.verde {
+    background-color: var(--detalles);
+}
+
+.orden {
+    margin-top: 1rem;
+    font-weight: bold;
+    padding: 1rem 3rem;
+    border: 0;
+    border-radius: 0.4rem;
+    appearance: none;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 250ms;
+    background-color: var(--detalles);
+}
+
+.orden:hover{
+    background-color: var(--detallesClaro);
+}
+
+#navbarTogglerDemo02 ul
+{
+    margin-left: 13rem;
 }
 
 main button

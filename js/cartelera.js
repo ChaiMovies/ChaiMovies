@@ -23,7 +23,10 @@ function pintaPelicula(peliculas) {
     while (i < 20) {
         var pelicula = new Pelicula(IMAGE_BASE_URL + peliculas[i].poster_path, peliculas[i].title, peliculas[i].release_date, peliculas[i].vote_average);
         let cadena = "<div class=\"pelicula\"> <img class=\"portada\" src=\"" + pelicula.imgUrl + "\">"
-        cadena += "<span>" + pelicula.puntos
+        if(pelicula.puntos<4.5) cadena += "<span class=\"rojo\">"+pelicula.puntos
+        else if(pelicula.puntos<6) cadena += "<span class=\"naranja\">"+pelicula.puntos
+        else if(pelicula.puntos<8) cadena += "<span class=\"amarillo\">"+pelicula.puntos
+        else cadena += "<span class=\"verde\">"+pelicula.puntos
         if (pelicula.puntos.toString().length == 1) cadena += ".0"
         cadena += "</span>"
         cadena += "<div class=\"titulo\">" + pelicula.titulo + "</div>"
