@@ -43,16 +43,22 @@ carousels.forEach(car=> {
   });
 });
 
+function compareMayor(a,b) {
+  if (a.vote_average < b.vote_average)
+     return 1;
+  if (a.vote_average > b.vote_average)
+    return -1;
+  return 0;
+}
 
-
-window.onscroll = function () { scrollFunction() };
+window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
-    if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
-        document.querySelector("nav").className = "scrollNav navbar navbar-expand-lg navbar-light bg-light";
-    } else {
-        document.querySelector("nav").className = "navbar navbar-expand-lg navbar-light bg-light";
-    }
+  if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
+    document.querySelector("nav").id = "scrollNav";
+  } else {
+    document.querySelector("nav").id = "";
+  }
 }
 
 //Populares
@@ -62,7 +68,7 @@ async function getPeliculas(page = 1) {
   const responseData = await response.json()
   data = responseData?.results
   //console.log(data[0])
-  pintaPelicula(data)
+  pintaPelicula(data.sort(compareMayor))
 }
 
 function pintaPelicula(peliculas){
