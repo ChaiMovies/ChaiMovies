@@ -22,14 +22,16 @@ function pintaPelicula(peliculas) {
     let i = 0;
     while (i < 20) {
         var pelicula = new Pelicula(IMAGE_BASE_URL + peliculas[i].poster_path, peliculas[i].title, peliculas[i].release_date, peliculas[i].vote_average);
-        console.log(peliculas[i])
         let cadena = "<div class=\"pelicula\"> <img class=\"portada\" src=\"" + pelicula.imgUrl + "\">"
-        cadena += "<span>" + pelicula.puntos + "</span>"
+        cadena += "<span>" + pelicula.puntos
+        if(pelicula.puntos.toString().length == 1) cadena += ".0"
+        cadena += "</span>"
         cadena += "<div class=\"titulo\">" + pelicula.titulo + "</div>"
         document.querySelector(".contenido").innerHTML += cadena;
         i++;
     }
 }
+
 document.querySelector(".more").addEventListener("click", function () {
     page++;
     getCartelera(page);
