@@ -158,6 +158,22 @@ main button:hover
 {
     background-color: var(--detalles);
 }
+.ir-arriba {
+    visibility: hidden;
+	padding:20px;
+	background:var(--detalles);
+	font-size:20px;
+	color:#fff;
+	cursor:pointer;
+	position: fixed;
+	bottom:20px;
+	right:20px;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /* FOOTER */
 footer {
     background-color: #1c2331;
