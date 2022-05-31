@@ -1,8 +1,3 @@
-:root {
-    --detalles: #1ac369;
-    --detallesClaro: #5acf91;
-    --fondoWeb: #252525;
-}
 
 body {
     display: flex;
@@ -24,7 +19,10 @@ body::-webkit-scrollbar {
     width: 80vw;
 }
 
-
+#navbarTogglerDemo02 ul
+{
+    margin-left: 13rem;
+}
 .pelicula{
     width: 11.9vw;
     height: 17.8vw;
@@ -105,27 +103,4 @@ main button:hover
     display: flex;
     justify-content: center;
     align-items: center;
-}
-/* FOOTER */
-footer {
-    background-color: #1c2331;
-    width: 100vw;
-}
-
-footer section:first-child {
-    background-color: var(--detalles);
-}
-
-footer hr {
-    width: 70px;
-    background-color: var(--detalles);
-    height: 3px;
-}
-
-footer span {
-    font-weight: bold;
-}
-footer a 
-{
-    text-decoration: none;
 }
