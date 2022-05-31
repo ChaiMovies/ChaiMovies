@@ -23,10 +23,7 @@ function pintaPelicula(peliculas) {
     while (i < 20) {
         var pelicula = new Pelicula(IMAGE_BASE_URL + peliculas[i].poster_path, peliculas[i].title, peliculas[i].release_date, peliculas[i].vote_average);
         let cadena = "<div class=\"pelicula\"> <img class=\"portada\" src=\"" + pelicula.imgUrl + "\">"
-        if(pelicula.puntos<4.5) cadena += "<span class=\"rojo\">"+pelicula.puntos
-        else if(pelicula.puntos<6) cadena += "<span class=\"naranja\">"+pelicula.puntos
-        else if(pelicula.puntos<8) cadena += "<span class=\"amarillo\">"+pelicula.puntos
-        else cadena += "<span class=\"verde\">"+pelicula.puntos
+        cadena += "<span>" + pelicula.puntos
         if (pelicula.puntos.toString().length == 1) cadena += ".0"
         cadena += "</span>"
         cadena += "<div class=\"titulo\">" + pelicula.titulo + "</div>"
@@ -61,3 +58,105 @@ document.querySelector("#ir-arriba").addEventListener('click', function () {
     if (window.scrollY != 0)
         window.scrollTo(50, 0);
 });
+
+//ordenar
+document.getElementById("maymen").addEventListener('change', (e) => {
+    if (e.target.checked) {
+        document.getElementById("menmay").checked = false;
+        let pelis = document.querySelectorAll(".pelicula");
+        let obj = Object.entries(pelis);
+        obj.sort(MayorMenor)
+        document.querySelector(".contenido").innerHTML = "";
+        obj.forEach(([key, value]) => {
+            document.querySelector(".contenido").appendChild(value);
+        });
+    }
+    else {
+        document.querySelector(".contenido").innerHTML = "";
+        getCartelera(page);
+    }
+})
+document.getElementById("menmay").addEventListener('change', (e) => {
+    if (e.target.checked) {
+        document.getElementById("maymen").checked = false;
+        let pelis = document.querySelectorAll(".pelicula");
+        let obj = Object.entries(pelis);
+        obj.sort(MenorMayor)
+        document.querySelector(".contenido").innerHTML = "";
+        obj.forEach(([key, value]) => {
+            document.querySelector(".contenido").appendChild(value);
+        });
+    }
+    else {
+        document.querySelector(".contenido").innerHTML = "";
+        getCartelera(page);
+    }
+})
+
+function MayorMenor(peliA, peliB) {
+    let a = peliA[1].childNodes[2].textContent;
+    let b = peliB[1].childNodes[2].textContent;
+    if (a > b) return -1;
+    else if (a < b) return 1;
+    else return 0;
+}
+
+function MenorMayor(peliA, peliB) {
+    let a = peliA[1].childNodes[2].textContent;
+    let b = peliB[1].childNodes[2].textContent;
+    if (a < b) return -1;
+    else if (a > b) return 1;
+    else return 0;
+}
+
+document.getElementById("z-a").addEventListener('change', (e) => {
+    if (e.target.checked) {
+        document.getElementById("a-z").checked = false;
+        let pelis = document.querySelectorAll(".pelicula");
+        let obj = Object.entries(pelis);
+        obj.sort(ZtoA)
+        document.querySelector(".contenido").innerHTML = "";
+        obj.forEach(([key, value]) => {
+            document.querySelector(".contenido").appendChild(value);
+        });
+    }
+    else {
+        document.querySelector(".contenido").innerHTML = "";
+        getCartelera(page);
+    }
+})
+
+document.getElementById("a-z").addEventListener('change', (e) => {
+    if (e.target.checked) {
+        document.getElementById("z-a").checked = false;
+        let pelis = document.querySelectorAll(".pelicula");
+        let obj = Object.entries(pelis);
+        obj.sort(AtoZ)
+        document.querySelector(".contenido").innerHTML = "";
+        obj.forEach(([key, value]) => {
+            document.querySelector(".contenido").appendChild(value);
+        });
+    }
+    else {
+        document.querySelector(".contenido").innerHTML = "";
+        getCartelera(page);
+    }
+})
+
+function AtoZ(peliA, peliB) {
+    let a = peliA[1].childNodes[3].textContent;
+    let b = peliB[1].childNodes[3].textContent;
+    console.log(peliA[1].childNodes[3].textContent)
+    if (a < b) return -1;
+    else if (a > b) return 1;
+    else return 0;
+}
+
+function ZtoA(peliA, peliB) {
+    let a = peliA[1].childNodes[3].textContent;
+    let b = peliB[1].childNodes[3].textContent;
+    console.log(peliA[1].childNodes[3].textContent)
+    if (a > b) return -1;
+    else if (a < b) return 1;
+    else return 0;
+}
