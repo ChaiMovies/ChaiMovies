@@ -76,7 +76,9 @@ document.getElementById("maymen").addEventListener('change', (e) => {
     }
     else {
         document.querySelector(".contenido").innerHTML = "";
-        getCartelera(page);
+        for (let i = 1; i <= page; i++) {
+            getCartelera(i);
+        }
     }
 })
 document.getElementById("menmay").addEventListener('change', (e) => {
@@ -92,7 +94,9 @@ document.getElementById("menmay").addEventListener('change', (e) => {
     }
     else {
         document.querySelector(".contenido").innerHTML = "";
-        getCartelera(page);
+        for (let i = 1; i <= page; i++) {
+            getCartelera(i);
+        }
     }
 })
 
@@ -125,7 +129,9 @@ document.getElementById("z-a").addEventListener('change', (e) => {
     }
     else {
         document.querySelector(".contenido").innerHTML = "";
-        getCartelera(page);
+        for (let i = 1; i <= page; i++) {
+            getCartelera(i);
+        }
     }
 })
 
@@ -142,7 +148,9 @@ document.getElementById("a-z").addEventListener('change', (e) => {
     }
     else {
         document.querySelector(".contenido").innerHTML = "";
-        getCartelera(page);
+        for (let i = 1; i <= page; i++) {
+            getCartelera(i);
+        }
     }
 })
 
