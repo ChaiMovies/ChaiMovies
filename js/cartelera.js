@@ -56,7 +56,5 @@ function GoTop()
 }
 
 document.querySelector("#ir-arriba").addEventListener('click',function () {
-    if(window.scrollY!=0)
-    { window.scrollTo(50,0);
-    console.log("ea")}
+    if(window.scrollY!=0) window.scrollTo(50,0);
 });
