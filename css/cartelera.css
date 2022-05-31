@@ -67,13 +67,6 @@ main span{
     border: 2px white solid;
 }
 
-header a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    font-weight: bolder;
-}
 main button
 {
     background-color: var(--detallesClaro);
