@@ -45,14 +45,14 @@ carousels.forEach(car=> {
 
 
 
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function () { scrollFunction() };
 
 function scrollFunction() {
-  if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
-    document.querySelector("nav").className = "scrollNav";
-  } else {
-    document.querySelector("nav").className = "";
-  }
+    if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
+        document.querySelector("nav").className = "scrollNav navbar navbar-expand-lg navbar-light bg-light";
+    } else {
+        document.querySelector("nav").className = "navbar navbar-expand-lg navbar-light bg-light";
+    }
 }
 
 //Populares
