@@ -8,8 +8,9 @@ window.onscroll = function() {scrollFunction()};
 
 class Pelicula 
 {
-    constructor(imgUrl,titulo,fecha,puntos)
+    constructor(id,imgUrl,titulo,fecha,puntos)
     {
+        this.id = id;
         this.imgUrl = imgUrl;
         this.titulo = titulo;
         this.fecha = fecha;
@@ -52,14 +53,15 @@ function pintaPelicula(peliculas){
   let i = 0;
   while(i < 20){
     const nota = parseFloat(peliculas[i].vote_average).toFixed(1);
-    var pelicula = new Pelicula(IMAGE_BASE_URL+peliculas[i].poster_path,peliculas[i].title,peliculas[i].release_date,nota);
-    console.log(peliculas[i])
-    let cadena = "<div class=\"pelicula\"> <img class=\"portada\" src=\""+pelicula.imgUrl+"\">"
+    var pelicula = new Pelicula(peliculas[i].id,IMAGE_BASE_URL+peliculas[i].poster_path,peliculas[i].title,peliculas[i].release_date,nota);
+    let cadena = "<div class=\"pelicula\"> "
+    console.log("<a href=\"https://www.themoviedb.org/movie/"+peliculas[i].id+"\">");
+    cadena += "<a href=\"https://www.themoviedb.org/movie/"+peliculas[i].id+"\"><img class=\"portada\" src=\""+pelicula.imgUrl+"\">"
     if(nota<4.5) cadena += "<span class=\"rojo\">"+pelicula.puntos+"</span>"
     else if(nota<6) cadena += "<span class=\"naranja\">"+pelicula.puntos+"</span>"
     else if(nota<8) cadena += "<span class=\"amarillo\">"+pelicula.puntos+"</span>"
     else cadena += "<span class=\"verde\">"+pelicula.puntos+"</span>"
-    cadena += "<div class=\"titulo\">"+pelicula.titulo+"</div>"
+    cadena += "</a><div class=\"titulo\">"+pelicula.titulo+"</div>"
     document.querySelector(".contenido").innerHTML += cadena;
     i++;
   }
@@ -123,5 +125,16 @@ document.querySelector(".navega .anterior").addEventListener("click", function()
   document.querySelector(".contenido").innerHTML = "";
   getPeliculas(actualPage); 
 },true);
+
+
+let pelis = document.querySelectorAll(".contenido a")
+console.log[pelis]
+
+pelis.forEach(element => {
+  element.ddEventListener("click", function(){
+    console.log(element)
+  },true);
+});
+
 
 getPeliculas(actualPage);
