@@ -92,17 +92,18 @@ main {
     margin-top: 1rem;
     font-weight: bold;
     padding: 1rem 3rem;
-    border: none;
+    border: 2px transparent solid;
     border-radius: 0.4rem;
     appearance: none;
     cursor: pointer;
-    transition: background 0.2s, box-shadow 250ms;
+    transition: all ease-in-out 0.15s;
     background-color: var(--detalles);
     z-index: 77;
     margin-left: 20vh;
 }
 .manejaWeb .orden:hover{
-    background-color: var(--detallesClaro);
+    border: 2px white solid;
+    background-color: var(--detalles);
 }
 
 .manejaWeb{
