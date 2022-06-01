@@ -9,87 +9,11 @@ body {
 body::-webkit-scrollbar {
     display: none;
 }
-hr
-{
-    margin: 0;
-}
-.principal
-{
-    display: flex;
-    flex-direction: column;
-}
-.contenido{
-    margin-top: 2rem;
-    display:flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    width: 80vw;
-}
-.rojo {
-    background-color: rgb(255, 17, 17);
-}
-.naranja {
-    background-color: rgb(233, 124, 51);
-}
-.amarillo {
-    background-color: rgb(224, 183, 0);
-}
-.verde {
-    background-color: var(--detalles);
-}
-#navbarTogglerDemo02 ul
-{
-    margin-left: 13rem;
-}
-.pelicula{
-    width: 11.9vw;
-    height: 17.8vw;
-    border: var(--detalles) solid 2px ;
-    
-    margin: 2rem;
-    margin-bottom: 6rem;
-    margin-top: 0px !important;
-    transition: all ease-in-out 0.3s;
-}
-.filter
-{
-    margin-top: 2rem;
-}
-.filter #punt
-{
-    margin-left: 2.5rem;
-}
-.pelicula:hover{
-    position: relative;
-    width: 12.4vw;
-    height: 18.2vw;
-    box-shadow: 0px 10px 10px -6px var(--detalles);
-}
 
-.titulo {
-    text-align: center;
-    margin-top: 1rem;
-    font-weight: bolder;
-    overflow: hidden;
-    height: 3rem;
-}
-main
-{
+/*MAIN*/
+main {
+    min-height: 100vh;
     display: flex;
-}
-main img{
-    width: 100%;
-    height: 100%;
-}
-
-main span{
-    position: static;
-    margin-left: -1vw;
-    background-color: var(--detallesClaro);
-    padding: 10px;
-    border-radius: 100%;
-    border: 2px white solid;
 }
 
 main button
@@ -102,10 +26,116 @@ main button
     height: 5vh;
     font-weight: bold;
 }
+
 main button:hover
 {
     background-color: var(--detalles);
 }
+
+main span {
+    position: static;
+    margin-left: -1vw;
+    background-color: var(--detallesClaro);
+    padding: 10px;
+    border-radius: 100%;
+    border: 2px white solid;
+}
+
+.filter {
+    margin-top: 2rem;
+}
+
+.filter #punt {
+    margin-left: 2.5rem;
+}
+
+.contenido{
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 77.1vw;
+    transition: none;
+}
+
+.contenido img{
+    z-index: 50;
+    border-radius: 0.5em;
+    transition: all ease-in-out 0.3s;
+    width: 100%;
+    height: 100%;
+    border: var(--detalles) solid 2px ;
+}
+.contenido img:hover{
+    box-shadow: 0px 10px 10px -6px var(--detalles);
+    transform: scale(1.1);
+}
+
+.contenido img:hover + span{
+    font-size: 2rem;
+}
+
+.pelicula{
+    width: 11.9vw;
+    height: 17.8vw;
+    margin: 2rem;
+    margin-bottom: 7.4rem;
+    margin-top: 1.4rem;
+}
+
+.pelicula span{
+    position: relative;
+    z-index: 99;
+    margin-left: -1vw;
+    padding: 10px;
+    border-radius: 100%;
+    border: 2px var(--detallesClaro) solid;
+    color: white;
+    font-weight: bolder;
+    transition: all ease-in-out 0.3s;
+}
+
+.titulo {
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: bolder;
+}
+
+.principal {
+    display: flex;
+    flex-direction: column;
+}
+
+.rojo {
+    background-color: rgb(255, 17, 17);
+}
+.naranja {
+    background-color: rgb(233, 124, 51);
+}
+.amarillo {
+    background-color: rgb(224, 183, 0);
+}
+.verde {
+    background-color: var(--detalles);
+}
+
+.orden {
+    margin-top: 1rem;
+    font-weight: bold;
+    padding: 1rem 3rem;
+    border: 0;
+    border-radius: 0.4rem;
+    appearance: none;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 250ms;
+    background-color: var(--detalles);
+}
+
+.orden:hover{
+    background-color: var(--detallesClaro);
+}
+
+
 .ir-arriba {
     visibility: hidden;
 	padding:20px;
