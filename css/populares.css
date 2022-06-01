@@ -121,10 +121,11 @@ main {
 .anterior, .siguiente {
     margin: 1vh;
     height: fit-content;
-    width: 3rem;
+    width: fit-content;
     border-radius: 0.4rem;
     background-color: var(--fondoWeb);
     border: 2px white solid;
+    padding-left: 1rem;
 }
 
 .anterior svg, .siguiente svg{
