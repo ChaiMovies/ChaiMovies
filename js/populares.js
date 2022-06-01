@@ -1,3 +1,5 @@
+let actualPage = 1;
+'use strict'
 const API_BASE_URL = 'https://api.themoviedb.org/3/';
 const IMAGE_BASE_URL = 'https://www.themoviedb.org/t/p/w220_and_h330_face';
 const API_KEY = '294eb45bf7bff7680030e60e8372c815';
@@ -24,8 +26,10 @@ function scrollFunction() {
   }
 }
 
-async function getPeliculas(page = 1) {
+async function getPeliculas(page) {
   let data = []
+  document.querySelector(".numPag").innerHTML = page;
+  document.querySelector(".navega .numPag").innerHTML = page;
   const response = await fetch(`${API_BASE_URL}movie/popular?api_key=${API_KEY}&language=es-ES&page=${page}`)
   const responseData = await response.json()
   data = responseData?.results
@@ -34,7 +38,7 @@ async function getPeliculas(page = 1) {
 
 }
 
-async function getPeliculasBuenas(page = 1,mayor) {
+async function getPeliculasBuenas(page,mayor) {
   let data = []
   const response = await fetch(`${API_BASE_URL}movie/popular?api_key=${API_KEY}&language=es-ES&page=${page}`)
   const responseData = await response.json()
@@ -63,7 +67,7 @@ function pintaPelicula(peliculas){
 
 function compareMayor(a,b) {
   if (a.vote_average < b.vote_average)
-     return 1;
+    return 1;
   if (a.vote_average > b.vote_average)
     return -1;
   return 0;
@@ -71,25 +75,53 @@ function compareMayor(a,b) {
 
 function compareMenor(a,b) {
   if (a.vote_average < b.vote_average)
-     return -1;
+    return -1;
   if (a.vote_average > b.vote_average)
     return 1;
   return 0;
-}
-
-function ordenaYPinta(){
-
 }
 
 let clicks = 0;
 document.querySelector(".orden").addEventListener("click", function(){
   clicks++;
   document.querySelector(".contenido").innerHTML = "";
-  if(clicks==1) getPeliculasBuenas("",1)
-  else if(clicks==2) getPeliculasBuenas("",0)
+  if(clicks==1) getPeliculasBuenas(actualPage,1)
+  else if(clicks==2) getPeliculasBuenas(actualPage,0)
   else if(clicks>2) {
-    getPeliculas(); clicks=0;
+    getPeliculas(actualPage); clicks=0;
   }
 },true);
 
-getPeliculas();
+document.querySelector(".siguiente").addEventListener("click", function(){
+  actualPage++;
+  clicks = 0;
+  document.querySelector(".contenido").innerHTML = "";
+  getPeliculas(actualPage); 
+},true);
+
+document.querySelector(".anterior").addEventListener("click", function(){
+  if(actualPage!=1) {
+    actualPage--;
+    clicks = 0;
+  }
+  document.querySelector(".contenido").innerHTML = "";
+  getPeliculas(actualPage); 
+},true);
+
+document.querySelector(".navega .siguiente").addEventListener("click", function(){
+  actualPage++;
+  clicks = 0;
+  document.querySelector(".contenido").innerHTML = "";
+  getPeliculas(actualPage); 
+},true);
+
+document.querySelector(".navega .anterior").addEventListener("click", function(){
+  if(actualPage!=1) {
+    actualPage--;
+    clicks = 0;
+  }
+  document.querySelector(".contenido").innerHTML = "";
+  getPeliculas(actualPage); 
+},true);
+
+getPeliculas(actualPage);
